@@ -13,6 +13,7 @@ import ForgotPassword from './ForgotPassword';
 const SignInForm = ({ onLogin }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +21,6 @@ const SignInForm = ({ onLogin }) => {
     const email = data.get('email');
     const password = data.get('password');
 
-    // 입력 검증
     let valid = true;
     if (!/\S+@\S+\.\S+/.test(email)) {
       setEmailError('Invalid email address');
@@ -37,7 +37,7 @@ const SignInForm = ({ onLogin }) => {
     }
 
     if (valid) {
-      onLogin(email, password); // 부모 컴포넌트로 전달
+      onLogin(email, password);
     }
   };
 
@@ -77,7 +77,13 @@ const SignInForm = ({ onLogin }) => {
         control={<Checkbox value="remember" color="primary" />}
         label="Remember me"
       />
-      <ForgotPassword />
+      <Button onClick={() => setIsForgotPasswordOpen(true)}>
+        Forgot Password?
+      </Button>
+      <ForgotPassword
+        open={isForgotPasswordOpen}
+        handleClose={() => setIsForgotPasswordOpen(false)}
+      />
       <Button type="submit" fullWidth variant="contained">
         Sign In
       </Button>

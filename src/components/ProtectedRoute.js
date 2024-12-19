@@ -2,9 +2,13 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn'); // 로그인 상태 확인
+  const isAuthenticated = true; // 여기에 인증 로직을 작성하세요
 
-  return isLoggedIn ? children : <Navigate to="/" replace />; // 상태에 따라 리다이렉트
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 };
 
 export default ProtectedRoute;
