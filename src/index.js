@@ -5,6 +5,7 @@ import SignIn from './sign-in/SignIn';
 import Dashboard from './dashboard/Dashboard';
 import MainGrid from './dashboard/components/MainGrid';
 import AnotherPage from './dashboard/components/AnotherPage';
+import CircularProgressVariants from './components/CircularProgressVariants'; // 로딩 컴포넌트
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider
+      router={router}
+      fallbackElement={<CircularProgressVariants />} // 로딩 화면 추가
+    />
   </React.StrictMode>
 );

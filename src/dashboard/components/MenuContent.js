@@ -13,16 +13,28 @@ import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import ReportIcon from '@mui/icons-material/Report';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 
 const mainListItems = [
   { text: '대시보드', icon: <HomeRoundedIcon />, path: '/dashboard' },
   {
     text: '회원관리',
-    icon: <AnalyticsRoundedIcon />,
+    icon: <PeopleRoundedIcon />,
     path: '/dashboard/another',
   },
-  { text: '커뮤니티', icon: <PeopleRoundedIcon />, path: '/dashboard/clients' },
-  { text: 'Tasks', icon: <AssignmentRoundedIcon />, path: '/dashboard/tasks' },
+  {
+    text: '커뮤니티',
+    icon: <AssignmentRoundedIcon />,
+    path: '/dashboard/clients',
+  },
+  { text: '공지', icon: <EventNoteIcon />, path: '/dashboard/notices' },
+  { text: '신고', icon: <ReportIcon />, path: '/dashboard/reports' },
+  {
+    text: '문의사항',
+    icon: <AnalyticsRoundedIcon />,
+    path: '/dashboard/reports',
+  },
 ];
 
 const secondaryListItems = [
